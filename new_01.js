@@ -89,4 +89,3 @@ input.addEventListener("keyup", function(event) {
    document.getElementById("formatbtn").click();
   }
 });
-
