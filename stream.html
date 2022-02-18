@@ -1,0 +1,232 @@
+<html lang="en" >
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#000000" />
+  <meta charset="UTF-8">
+  <title>DriveX</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css'>
+  <style>
+#mainpanel 
+   {
+  margin-top: 25px;
+  background: #e9e9e9;
+   }
+#buttonpanel
+   {
+   background: #e9e9e9;
+   margin-top: 25px;
+   }
+img 
+   {
+  max-width: 100%;
+  height: auto;
+   }
+.panel-default > .panel-heading-custom 
+   {
+background: #000000; color: #fff; 
+   }
+
+#copylinkbtn 
+   {
+background: #000000; color: #fff; 
+   }
+#directdownloadbtn   
+   {
+background: #000000; color: #fff; 
+   }
+#apistreambtn
+       {
+background: #000000; color: #fff; 
+   }
+#drivexapibtn
+    {
+background: #000000; color: #fff; 
+   }
+#drivexbuilder
+    {
+background: #000000; color: #fff; 
+   }
+
+.panel-footer 
+   {
+	background: #000000; color: #fff; 
+   }
+.material-icons.md-18 
+   { 
+     font-size: 14.5px; 
+     background: #000000;
+     color: #ffffff;
+   }
+   
+.form-control:focus:active 
+   {
+  background-color: #DEFDFD!important;
+  border-color: #DEFDFD;
+  color: white;
+   }
+.copyleft 
+   {
+  display:inline-block;
+  transform: rotate(180deg);
+   }
+.homebtn
+   {
+   border-top-left-radius: 10px 5px;
+   border-bottom-right-radius: 10% 5%;
+   border-top-right-radius: 10px;
+   }
+
+.material-icons.md-20  
+   {
+   font-size: 14.5px; 
+   background: #ffffff;
+   color: #000000;
+   } 
+.menubtn
+   {
+    font-size: 11px; 
+   background: #ffffff;
+   color: #000000;
+   }  
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 56px;
+  height: 24px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 5;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: red;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 22px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #939393;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 30px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}   
+.btn.btn-primary
+{
+   background: #000000;
+   color: #ffffff;
+}
+  </style>
+ </head>
+<body>
+<center><i><font color="grey">This is an open-source project.</font><br><a href="https://github.com/3IceCube/DriveX">Git repository</a></i></center>
+<div class="container">
+  <div class="panel panel-default" id="mainpanel">
+    <div class="panel-heading panel-heading-custom clearfix">
+      <h1 class="panel-title pull-left" style="padding-top: 8.5px;">Drive<font color="red">X</font> - Stream API Link</h1>
+	  <div class="dropdown pull-right">
+	  
+	    <button class="btn material-icons md-20" type="button" data-toggle="dropdown">menu
+                <span class="caret"></span>
+		</button>
+                        <ul class="dropdown-menu">
+                            <li><a href="./direct_download.html">Share Link to Direct Download Link</a></li>
+							<li><a href="./index.html">Download Link to Share Link</a></li>
+                         </ul>
+		
+ 	  </div>
+    </div>
+    <div class="panel-body" id="panelbody">
+      <form>
+        <div class="form-group">
+          <label for="downloadlink">Download link / Share link</label>
+		  <input type="text" class="form-control" id="mainlink" autofocus="true">
+        </div>
+		<div class="form-group">
+          <label for="downloadlink">Drive API Key</label>
+		  <div class="input-group">
+          <input type="text" class="form-control" id="apikey">
+		  <span class="input-group-btn">
+		           <button id="formatbtn" class="btn material-icons md-18" type="button">arrow_forward_ios</button>
+          </span>
+		  </div>
+        </div>
+        <div class="form-group">
+          <label for="sharinglink">Streaming Link</label>
+          <div class="input-group">
+            <input type="text" class="form-control" id="streamlink" readonly>
+            <span class="input-group-btn">
+        <button id="copylinkbtn" class="btn material-icons md-18" type="button"  disabled>content_copy</button>
+      </span>
+          </div>
+        </div>
+      </form>
+	  <div class="bottombtn">
+       <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Instructions</button>
+	   	   <button id="defaultapibtn" class="btn btn-default" type="button">Set Default API Key</button>
+	   <button id="fileidbtn" class="btn btn-default" type="button" disabled>Copy only File ID</button>
+	   <button id="apionlybtn" class="btn btn-default" type="button" disabled>Copy only API Key</button>
+      </div>
+  <div class="collapse" id="collapseExample">
+   <br /><center><h4><strong>How to generate Google Drive API Key</strong></h4></center></br>
+    <div class="well text-left">
+	<p><center>
+	            <video width="320" height="240" controls>
+                <source src="https://drive.google.com/uc?export=preview&id=18bmIoyMmjKnme9RtgZUUnHd8eYW5nR3x" type="video/mp4">
+                Your browser does not support the video tag.
+                </video>
+				</center>
+	</p>
+    </div>
+  </div>    
+    </div>
+	<div>
+    <div class="panel-footer text-right"><span class="copyleft">&copy;</span> 2022 Drive<font color="red">X</font> by <i>Aditya Singh</i>
+</div></div>
+  </div>
+</div>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.10/clipboard.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mouse0270-bootstrap-notify/3.1.5/bootstrap-notify.min.js'></script>
+<script src="./slim_notifier.js"></script>
+<script src="./stream_script.js"></script>
+</body>
+</html>
